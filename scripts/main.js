@@ -84,8 +84,8 @@ class Snake{
                 break;
         }
         let classes = cells[this.tail.x+this.tail.y*10].classList;
-        if(classes.contains("GAME OVER")){
-            alert('perdiste');
+        if(classes.contains("snake")){
+            alert('GAME OVER');
             for(let i=0; i < cells.length; i++){
                 cells[i].classList.remove("snake");
             }
