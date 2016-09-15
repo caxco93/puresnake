@@ -1,0 +1,27 @@
+div {
+    
+    width:640px;
+    margin:auto;
+}
+main {
+    width:640px;
+    height:640px;
+    border: solid 1px black;
+    display: flex;
+    flex-wrap: wrap;
+}
+main span{
+    width:64px;
+    height:64px;
+    background-color: #f0f0f0;
+    border: solid 1px black;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+.food {
+    background-color:#ff9090;
+}
+.snake {
+    background-color:#9090ff;
+}
