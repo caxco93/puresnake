@@ -84,12 +84,12 @@ class Snake{
                 break;
         }
         let classes = cells[this.tail.x+this.tail.y*10].classList;
-        if(classes.contains("snake")){
+        if(classes.contains("GAME OVER")){
             alert('perdiste');
             for(let i=0; i < cells.length; i++){
                 cells[i].classList.remove("snake");
             }
-            player = new Snake(5, 5, "snake");
+            player = new Snake(2, 2, "snake");
         }else{
             this.tail.paint();
             this.head = this.tail;
@@ -126,7 +126,7 @@ function init(){
     }, true);
     addFood();
 
-    player = new Snake(5, 5, "snake");
+    player = new Snake(2, 2, "snake");
 }
 
 function gameLoop(){

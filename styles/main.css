@@ -19,9 +19,9 @@ main span{
     text-align: center;
 
 }
-.food {
-    background-color:#ff9090;
-}
 .snake {
     background-color:#9090ff;
+}
+.food {
+    background-color:#ff9090;
 }
