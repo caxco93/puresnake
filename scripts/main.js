@@ -43,12 +43,15 @@ class Snake{
         this.tail = new Block(x, y, "snake", this.head);
         this.head.next = this.tail;
         this.direccion = 0;
+        this.nextDireccion = 0;
+        this.queueDireccion = null;
         this.eaten = false;
         this.head.paint();
         this.tail.paint();
     }
     update(){
         !this.eaten?this.tail.erase():this.eaten=false;
+        this.direccion = this.nextDireccion;
         switch(this.direccion){
             case 0:
                 if(this.head.x+1>9){
@@ -112,16 +115,16 @@ class Snake{
 function init(){
     document.addEventListener('keydown', function(event) {
         if(event.keyCode == 37 && player.direccion != 0) {
-            player.direccion = 2;
+            player.nextDireccion = 2;
         }
         else if(event.keyCode == 38 && player.direccion != 3) {
-            player.direccion = 1
+            player.nextDireccion = 1
         }
         else if(event.keyCode == 39 && player.direccion != 2) {
-            player.direccion = 0
+            player.nextDireccion = 0
         }
         else if(event.keyCode == 40 && player.direccion != 1) {
-            player.direccion = 3
+            player.nextDireccion = 3
         }
     }, true);
     addFood();
