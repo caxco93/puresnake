@@ -1,18 +1,15 @@
-div {
-    
-    width:640px;
-    margin:auto;
-}
 main {
-    width:640px;
-    height:640px;
+    margin:auto;
+    width:100%;
+    max-width:600px;
     border: solid 1px black;
     display: flex;
     flex-wrap: wrap;
 }
 main span{
-    width:64px;
-    height:64px;
+    width:10%;
+    height:0px;
+    padding-bottom:10%;
     background-color: #f0f0f0;
     border: solid 1px black;
     box-sizing: border-box;
@@ -24,4 +21,27 @@ main span{
 }
 .food {
     background-color:#ff9090;
+}
+
+div.botones {
+    margin-top:2vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+@media (orientation: landscape){
+    div.botones{
+	display:none;
+    }
+}
+button{
+    box-sizing: border-box;
+}
+.left, .right{
+    width:50%;
+    height:10vh;
+}
+.up, .down{
+    width:100%;
+    height:10vh;
 }

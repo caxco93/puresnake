@@ -3,7 +3,7 @@ var food;
 
 var cont;
 var cells;
-var fps = 8;
+var fps = 10;
 var now;
 var then = Date.now();
 var interval = 1000/fps;
@@ -110,6 +110,23 @@ class Snake{
         this.tail = blo;
         this.head.next = blo;
     }
+}
+
+function up(){
+    if(player.direccion != 3)
+        player.nextDireccion = 1;
+}
+function left(){
+    if(player.direccion != 0)
+        player.nextDireccion = 2;
+}
+function right(){
+    if(player.direccion != 2)
+        player.nextDireccion = 0;
+}
+function down(){
+    if(player.direccion != 1)
+        player.nextDireccion = 3;
 }
 
 function init(){
