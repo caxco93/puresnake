@@ -3,7 +3,7 @@ var food;
 
 var cont;
 var cells;
-var fps = 10;
+var fps = 7;
 var now;
 var then = Date.now();
 var interval = 1000/fps;
