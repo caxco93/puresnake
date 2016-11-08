@@ -9,6 +9,10 @@ var then = Date.now();
 var interval = 1000/fps;
 var delta;
 
+var poder = false;
+var FACTOR = 1;
+var _FACTOR = 2;
+
 function addBlock(){
     let elem = document.createElement('span');
     cont.appendChild(elem);
@@ -52,40 +56,45 @@ class Snake{
     update(){
         !this.eaten?this.tail.erase():this.eaten=false;
         this.direccion = this.nextDireccion;
+        if(poder){
+            FACTOR = _FACTOR
+            poder = false
+        }
         switch(this.direccion){
             case 0:
-                if(this.head.x+1>9){
+                if(this.head.x+1*FACTOR>9){
                     this.tail.x=0
                 }else{
-                    this.tail.x = this.head.x+1;
+                    this.tail.x = this.head.x+1*FACTOR;
                 }
                 this.tail.y = this.head.y;
                 break;
             case 1:
-                if(this.head.y-1<0){
+                if(this.head.y-1*FACTOR<0){
                     this.tail.y=9
                 }else{
-                    this.tail.y = this.head.y-1;
+                    this.tail.y = this.head.y-1*FACTOR;
                 }
                 this.tail.x = this.head.x;
                 break;
             case 2:
-                if(this.head.x-1<0){
+                if(this.head.x-1*FACTOR<0){
                     this.tail.x=9
                 }else{
-                    this.tail.x = this.head.x-1;
+                    this.tail.x = this.head.x-1*FACTOR;
                 }
                 this.tail.y = this.head.y;
                 break;
             case 3:
-                if(this.head.y+1>9){
+                if(this.head.y+1*FACTOR>9){
                     this.tail.y=0
                 }else{
-                    this.tail.y = this.head.y+1;
+                    this.tail.y = this.head.y+1*FACTOR;
                 }
                 this.tail.x = this.head.x;
                 break;
         }
+        FACTOR = 1;
         let classes = cells[this.tail.x+this.tail.y*10].classList;
         if(classes.contains("snake")){
             alert('GAME OVER');
@@ -142,6 +151,12 @@ function init(){
         }
         else if(event.keyCode == 40 && player.direccion != 1) {
             player.nextDireccion = 3
+        }
+        else if(event.keyCode == 32){
+            poder = true;
+        }
+        else if(event.keyCode == 77){
+            player.add()
         }
     }, true);
     addFood();
